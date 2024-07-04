@@ -1,0 +1,15 @@
+all: valeurPi
+
+valeurPi: produitPi.o main3.o
+	gcc -o valeurPi produitPi.o main3.o
+
+produit.o: produit.c
+	gcc -c produit.c -o produitPi.o
+
+main3.o: main3.c produitPi.h
+	gcc -c main3.c -o main3.o
+
+.PHONY: clean
+
+clean:
+	rm -f *.o valeurPi
